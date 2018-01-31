@@ -4,11 +4,14 @@
     "description": "A package to check which data-skins are setted on a certain theme",
     "main": "index.js",
     "scripts": {
-        "start": "gulp && node index.js"
+        "start": "gulp && node index.js && gulp format"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-import": "^2.8.0",
+        "gulp": "^3.9.1",
         "gulp-eslint": "^4.0.2",
         "gulp-json-format": "^2.0.0"
     },

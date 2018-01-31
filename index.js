@@ -11,12 +11,11 @@ const getCurrentAsText = apiKey => {
             'content-type': 'application/text',
         },
     };
-
     return fetch(url, options)
         .then(response => response.text())
         .then(data => {
             if (data.retry_after) {
-                return getCurrentAsText(path, data.retry_after);
+                return getCurrentAsText(url, data.retry_after);
             }
             return data;
         });

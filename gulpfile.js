@@ -13,5 +13,4 @@ gulp.task('format', () => {
         .pipe(jsonFormat(4))
         .pipe(gulp.dest('.'));
 });
-gulp.task('default', ['lint'], () => {
-});
+gulp.task('default', ['lint']);

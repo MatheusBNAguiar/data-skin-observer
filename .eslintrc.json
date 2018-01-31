@@ -10,13 +10,5 @@
         "import/no-dynamic-require": "off",
         "default-case": "off",
         "no-param-reassign": "off"
-    },
-    "plugins": [
-        "mocha",
-        "webdriverio"
-    ],
-    "env": {
-        "mocha": true,
-        "webdriverio/wdio": true
     }
 }
