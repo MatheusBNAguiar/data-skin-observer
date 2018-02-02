@@ -8,6 +8,8 @@ lib-cov
 *.gz
 
 objects/*.json
+processed/*.json
+base/*.json
 pids
 logs
 results
