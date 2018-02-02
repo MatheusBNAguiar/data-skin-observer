@@ -22,9 +22,10 @@ const crawlThroughInfo = (dataSkins, centralInfo) => {
                 specifiedWidget[widgetSkin]
                     .enabled = specifiedWidget[widgetSkin].enabled || isWidgetEnabled;
             } else {
-                specifiedWidget.notListed = [
-                    ...(specifiedWidget.notListed || []),
-                    { skin: widgetSkin, enabled: isWidgetEnabled },
+                specifiedWidget.notListed = specifiedWidget.notListed || {};
+                specifiedWidget.notListed[widgetSkin] = [
+                    ...(specifiedWidget.notListed[widgetSkin] || []),
+                    { location: centralConfig.config.name, enabled: isWidgetEnabled },
                 ];
             }
         });
