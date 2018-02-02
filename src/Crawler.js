@@ -1,5 +1,7 @@
 const { getData } = require('./Fetcher');
 const { writeJson } = require('./Json');
+const log = require('node-pretty-log');
+
 
 const crawlDataSkins = pageData => {
     const dataSkins = pageData.match(/\.addTheme\((([a-zA-Z0-9_."]*(,[a-zA-Z0-9_\-."]*)*)*)./g)
@@ -31,9 +33,9 @@ module.exports = {
                 return dataSkinObject;
             })
             .then(dataSkinObject => {
-                console.log(`[Crawler] ${apiKey} saved`);
+                log('success', `[Crawler] ${apiKey} saved`);
                 return dataSkinObject;
             })
-            .catch(err => console.log(err));
+            .catch(err => log('error', err));
     },
 };

@@ -2,11 +2,13 @@ const { getData } = require('./Fetcher');
 const { writeJson, readJson } = require('./Json');
 const { crawlDataSkin } = require('./Crawler');
 const { credentials } = require('../config.json');
+const log = require('node-pretty-log');
+
 
 const getUsedWidgets = slots => {
     let widgets = [];
     Object.values(slots).forEach(slot => {
-        widgets = [...widgets, ...slot.widgets];
+        widgets = [...widgets, ...slot.widgets || []];
     });
     return widgets;
 };
@@ -64,7 +66,7 @@ module.exports = {
                 const processedPath = `./processed/${apiKey}.json`;
                 writeJson(processedPath, matchedData);
             })
-            .then(() => console.log(`[Matcher] ${apiKey} matched`))
-            .catch(err => { console.log(err); });
+            .then(() => log('success', `[Matcher] ${apiKey} matched`))
+            .catch(err => { log('error', err); });
     },
 };
