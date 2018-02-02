@@ -1,5 +1,5 @@
-const centralInfo = require('./base-sephora-v6.json');
-const dataSkins = require('./objects/sephora-v6.json');
+const centralInfo = require('./base/marisa.json');
+const dataSkins = require('./objects/marisa.json');
 const fs = require('fs');
 
 const getUsedWidgets = slots => {
@@ -18,7 +18,6 @@ const crawlThroughInfo = (dataSkins, centralInfo) => {
             const specifiedWidget = dataSkins[widgetObject.feature];
             const widgetSkin = widgetObject.skin ? widgetObject.skin : 'default';
             const isWidgetEnabled = widgetObject.enabled;
-            console.log(specifiedWidget[widgetSkin]);
             if (specifiedWidget[widgetSkin]) {
                 specifiedWidget[widgetSkin]
                     .enabled = specifiedWidget[widgetSkin].enabled || isWidgetEnabled;
@@ -46,5 +45,4 @@ const writeJson = (apiKey, dataSkinObject) => {
 
 
 const json = crawlThroughInfo(dataSkins, centralInfo);
-console.log(json);
-writeJson('sephora-v6', json).catch(err => { console.log(err); });
+writeJson('marisa', json).catch(err => { console.log(err); });
