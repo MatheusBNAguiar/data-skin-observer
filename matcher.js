@@ -16,7 +16,7 @@ const crawlThroughInfo = (dataSkins, centralInfo) => {
         widgets.forEach(widget => {
             const widgetObject = centralConfig.widgets[widget];
             const specifiedWidget = dataSkins[widgetObject.feature];
-            const widgetSkin = widgetObject.skin ? widgetObject.skin : 'default';
+            const widgetSkin = widgetObject.skin || 'default';
             const isWidgetEnabled = widgetObject.enabled;
             if (specifiedWidget[widgetSkin]) {
                 specifiedWidget[widgetSkin]
