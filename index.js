@@ -31,7 +31,9 @@ const getObjectFromList = dataSkins => {
     const dataSkinObject = {};
     dataSkins.forEach(skin => {
         const [widget, dataSkin] = skin.split(',');
-        dataSkinObject[widget] = [...(dataSkinObject[widget] || []), dataSkin === 'null' ? 'default' : dataSkin];
+        const dataSkinName = dataSkin === 'null' ? 'default' : dataSkin;
+        dataSkinObject[widget] = dataSkinObject[widget] || {};
+        dataSkinObject[widget][dataSkinName] = {};
     });
     return dataSkinObject;
 };
