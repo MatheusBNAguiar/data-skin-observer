@@ -33,7 +33,7 @@ const getObjectFromList = dataSkins => {
         const [widget, dataSkin] = skin.split(',');
         const dataSkinName = dataSkin === 'null' ? 'default' : dataSkin;
         dataSkinObject[widget] = dataSkinObject[widget] || {};
-        dataSkinObject[widget][dataSkinName] = {};
+        dataSkinObject[widget][dataSkinName] = { enabled: false };
     });
     return dataSkinObject;
 };
