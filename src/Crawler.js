@@ -27,22 +27,17 @@ const getObjectFromList = (dataSkins, pageData) => {
 };
 
 
-module.exports = {
-    crawlDataSkin: apiKey => {
-        const currentUrl = `https://static.chaordicsystems.com/static/${apiKey}/current.js`;
-        getData(currentUrl)
-            .then(response => response.text())
-            .then(textData => crawlDataSkins(textData))
-            .then(data => getObjectFromList(...data))
-            .then(dataSkinObject => {
-                const dataPath = `./objects/${apiKey}.json`;
-                writeJson(dataPath, dataSkinObject);
-                return dataSkinObject;
-            })
-            .then(dataSkinObject => {
-                log('success', `[Crawler] ${apiKey} saved`);
-                return dataSkinObject;
-            })
-            .catch(err => log('error', err));
-    },
-};
+module.exports.crawlDataSkin = apiKey => getData(`https://static.chaordicsystems.com/static/${apiKey}/current.js`)
+    .then(response => response.text())
+    .then(textData => crawlDataSkins(textData))
+    .then(data => getObjectFromList(...data))
+    .then(dataSkinObject => {
+        const dataPath = `./objects/${apiKey}.json`;
+        writeJson(dataPath, dataSkinObject);
+        return dataSkinObject;
+    })
+    .then(dataSkinObject => {
+        log('success', `[Crawler] ${apiKey} saved`);
+        return dataSkinObject;
+    })
+    .catch(err => log('error', err));
