@@ -5,13 +5,8 @@ const { credentials } = require('../config.json');
 const log = require('node-pretty-log');
 
 
-const getUsedWidgets = slots => {
-    let widgets = [];
-    Object.values(slots).forEach(slot => {
-        widgets = [...widgets, ...slot.widgets || []];
-    });
-    return widgets;
-};
+const getUsedWidgets = slots => Object.values(slots)
+    .reduce((widgets, slot) => [...widgets, ...(slot.widgets || [])], []);
 
 const crawlThroughInfo = (dataSkins, centralInfo) => {
     centralInfo.forEach(centralConfig => {
