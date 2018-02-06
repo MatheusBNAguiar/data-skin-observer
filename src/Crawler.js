@@ -5,7 +5,7 @@ const log = require('node-pretty-log');
 
 const crawlDataSkins = pageData => {
     const dataSkins = pageData.match(/\.addTheme\((([a-zA-Z0-9_."]*(,[a-zA-Z0-9_\-."]*)*)*)./g)
-        .map(a => a.replace(/\.addTheme\(|\)|"/g, ''));
+        .map(theme => theme.replace(/\.addTheme\(|\)|"/g, ''));
     return [dataSkins, pageData];
 };
 
