@@ -16,6 +16,7 @@
         "gulp-json-format": "^2.0.0"
     },
     "dependencies": {
+        "node-pretty-log": "^1.1.0",
         "fetch-retry": "^1.1.1"
     }
 }

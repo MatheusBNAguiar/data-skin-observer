@@ -10,6 +10,9 @@ lib-cov
 objects/*.json
 processed/*.json
 base/*.json
+
+config.json
+
 pids
 logs
 results
