@@ -14,6 +14,8 @@ $ git clone git@github.com:MatheusBNAguiar/data-skin-observer.git
 $ cd data-skin-observer
 $ npm install
 ```
+Ask for your credentials
+Put them in the config.json file
 Running
 =============
 ```
